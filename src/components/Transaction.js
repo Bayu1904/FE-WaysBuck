@@ -19,7 +19,7 @@ export default function Transaction() {
   // let Total = transaction?.carts?.reduce((a, b) => {
   //   return a + b.sub_amount;
   // }, 0);
-  // console.log(transaction);
+  console.log(transactions);
   return (
     <>
     {transactions?.map((items, index) => (
@@ -29,7 +29,6 @@ export default function Transaction() {
       >
       <Row>
           {items?.carts?.map((cart, idx) => (
-        <>
         <Col md={8}>
             <Row className="mb-3">
               <Col sm={4}>
@@ -56,6 +55,7 @@ export default function Transaction() {
               </Col>
             </Row>
         </Col>
+          ))}
           
         <Col md={4} className="text-center">
           <img className="w-50" src={Logo} alt="" />
@@ -75,9 +75,6 @@ export default function Transaction() {
             Subtotal:{formatPrice(items?.total)}
           </div>
               </Col>
-              
-        </>
-        ))}
           </Row>
     </Container>
     ))}
