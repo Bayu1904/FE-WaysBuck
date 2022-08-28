@@ -12,7 +12,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export default function Transaction() {
-  let { data: transaction } = useQuery("transCache", async () => {
+  let { data: transactions } = useQuery("transCache", async () => {
     const response = await API.get("/transaction1");
     return response.data.data;
   });
@@ -21,33 +21,35 @@ export default function Transaction() {
   // }, 0);
   // console.log(transaction);
   return (
+    <>
+    {transactions?.map((items, index) => (
     <Container
       className="p-4 overflow-auto rounded-4"
       style={{ backgroundColor: "#F6DADA" }}
-    >
-          {transaction?.carts.map((items, index) => (
+      >
+      {items?.carts?.map((cart, idx) => (
       <Row>
         <Col md={8}>
             <Row className="mb-3">
               <Col sm={4}>
                 <img
-                  src={"http://localhost:5000/uploads/" + items?.product.image}
+                  src={items?.product?.image}
                   alt="aa"
                   style={{ width: 100 }}
                 />
               </Col>
               <Col sm={8}>
                 <div>
-                  <h5>{items?.product.name}</h5>
-                  <p>ID Order : {items.id}</p>
+                  <h5>{items?.product?.name}</h5>
+                  <p>ID Order : {items?.id}</p>
                 </div>
                 <div className="mt-1" style={{ fontSize: 15 }}>
                   <p className="my-1">
                     Topping :{" "}
-                    {items?.toping.map((items, index) => items.name).join(", ")}
+                    {items?.toping.map((items, index) => items?.name).join(", ")}
                   </p>
                   <p className="my-1">
-                    Price : {formatPrice(items.sub_amount)}
+                    Price : {formatPrice(items?.sub_amount)}
                   </p>
                 </div>
               </Col>
@@ -69,11 +71,14 @@ export default function Transaction() {
             {transaction?.status}
           </div>
           <div className="text-center w-75 m-auto my-3 fw-normal">
-            Subtotal:{formatPrice(Total)}
+            Subtotal:{formatPrice(items?.total)}
           </div>
         </Col>
-            </Row>
-            ))}
+          </Row>
+          ))}
     </Container>
+    ))}
+      
+    </>
   );
 }
