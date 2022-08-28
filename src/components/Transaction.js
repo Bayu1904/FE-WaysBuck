@@ -27,8 +27,9 @@ export default function Transaction() {
       className="p-4 overflow-auto rounded-4 mb-2"
       style={{ backgroundColor: "#F6DADA" }}
       >
-      {items?.carts?.map((cart, idx) => (
       <Row>
+          {items?.carts?.map((cart, idx) => (
+        <>
         <Col md={8}>
             <Row className="mb-3">
               <Col sm={4}>
@@ -73,9 +74,11 @@ export default function Transaction() {
           <div className="text-center w-75 m-auto my-3 fw-normal">
             Subtotal:{formatPrice(items?.total)}
           </div>
-        </Col>
+              </Col>
+              
+        </>
+        ))}
           </Row>
-          ))}
     </Container>
     ))}
       
