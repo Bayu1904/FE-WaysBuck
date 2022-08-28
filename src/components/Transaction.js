@@ -68,7 +68,7 @@ export default function Transaction() {
               color: "#00D1FF",
             }}
           >
-            {cart?.status}
+            {items?.status}
           </div>
           <div className="text-center w-75 m-auto my-3 fw-normal">
             Subtotal:{formatPrice(items?.total)}
