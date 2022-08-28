@@ -33,23 +33,23 @@ export default function Transaction() {
             <Row className="mb-3">
               <Col sm={4}>
                 <img
-                  src={items?.product?.image}
+                  src={cart?.product?.image}
                   alt="aa"
                   style={{ width: 100 }}
                 />
               </Col>
               <Col sm={8}>
                 <div>
-                  <h5>{items?.product?.name}</h5>
-                  <p>ID Order : {items?.id}</p>
+                  <h5>{cart?.product?.name}</h5>
+                  <p>ID Order : {cart?.id}</p>
                 </div>
                 <div className="mt-1" style={{ fontSize: 15 }}>
                   <p className="my-1">
                     Topping :{" "}
-                    {items?.toping.map((items, index) => items?.name).join(", ")}
+                    {cart?.toping.map((items, index) => items?.name).join(", ")}
                   </p>
                   <p className="my-1">
-                    Price : {formatPrice(items?.sub_amount)}
+                    Price : {formatPrice(cart?.sub_amount)}
                   </p>
                 </div>
               </Col>
@@ -68,7 +68,7 @@ export default function Transaction() {
               color: "#00D1FF",
             }}
           >
-            {transaction?.status}
+            {cart?.status}
           </div>
           <div className="text-center w-75 m-auto my-3 fw-normal">
             Subtotal:{formatPrice(items?.total)}
