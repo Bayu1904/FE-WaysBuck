@@ -1,0 +1,13 @@
+.toppingCeckbox {
+    cursor: pointer;
+    display: none
+}
+
+.toppingCeckbox:checked + label:after {
+    content: url("../Topping/icons8-check-circle-48.png");
+    position: absolute;
+}
+
+.fd {
+    display:none
+}
