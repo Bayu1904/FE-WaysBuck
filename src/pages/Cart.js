@@ -117,7 +117,8 @@ export default function Cart() {
                     >
                       <img
                         src={
-                          "http://localhost:5000/uploads/" + item.product.image
+                          "https://res.cloudinary.com/waysbuckv1/image/upload/v1661685154/waysbuck/" +
+                          item.product.image
                         }
                         alt="img"
                         style={{ width: "100%" }}
