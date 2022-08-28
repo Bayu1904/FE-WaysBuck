@@ -24,7 +24,7 @@ export default function Transaction() {
     <>
     {transactions?.map((items, index) => (
     <Container
-      className="p-4 overflow-auto rounded-4"
+      className="p-4 overflow-auto rounded-4 mb-2"
       style={{ backgroundColor: "#F6DADA" }}
       >
       {items?.carts?.map((cart, idx) => (

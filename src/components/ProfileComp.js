@@ -32,13 +32,13 @@ export default function ProfileComp() {
                 <p className="mb-0" style={{ color: "#613D2B", fontSize: 25 }}>
                   Full Name
                 </p>
-                <p>{transaction?.user?.name}</p>
+                <p>{transaction[0]?.user?.name}</p>
               </div>
               <div className="fw-semibold">
                 <p className="mb-0" style={{ color: "#613D2B", fontSize: 25 }}>
                   Email
                 </p>
-                <p>{transaction?.user?.email}</p>
+                <p>{transaction[0]?.user?.email}</p>
               </div>
             </Col>
           </Row>
