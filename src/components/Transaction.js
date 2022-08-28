@@ -13,21 +13,21 @@ import Col from "react-bootstrap/Col";
 
 export default function Transaction() {
   let { data: transaction } = useQuery("transCache", async () => {
-    const response = await API.get("/transaction-status");
+    const response = await API.get("/transaction1");
     return response.data.data;
   });
-  let Total = transaction?.carts?.reduce((a, b) => {
-    return a + b.sub_amount;
-  }, 0);
+  // let Total = transaction?.carts?.reduce((a, b) => {
+  //   return a + b.sub_amount;
+  // }, 0);
   // console.log(transaction);
   return (
     <Container
       className="p-4 overflow-auto rounded-4"
       style={{ backgroundColor: "#F6DADA" }}
     >
+          {transaction?.carts.map((items, index) => (
       <Row>
         <Col md={8}>
-          {transaction?.carts.map((items, index) => (
             <Row className="mb-3">
               <Col sm={4}>
                 <img
@@ -52,8 +52,8 @@ export default function Transaction() {
                 </div>
               </Col>
             </Row>
-          ))}
         </Col>
+          
         <Col md={4} className="text-center">
           <img className="w-50" src={Logo} alt="" />
           <br />
@@ -72,7 +72,8 @@ export default function Transaction() {
             Subtotal:{formatPrice(Total)}
           </div>
         </Col>
-      </Row>
+            </Row>
+            ))}
     </Container>
   );
 }

@@ -10,7 +10,7 @@ import Col from "react-bootstrap/Col";
 
 export default function ProfileComp() {
   let { data: transaction } = useQuery("transCache", async () => {
-    const response = await API.get("/transaction-id");
+    const response = await API.get("/transaction1");
     return response.data.data;
   });
   return (
@@ -47,7 +47,7 @@ export default function ProfileComp() {
           <h3 className="mb-4" style={{ color: "#613D2B" }}>
             My Transaction
           </h3>
-          <Transaction />
+          <Transaction data={ transaction} />
         </Col>
       </Row>
     </Container>

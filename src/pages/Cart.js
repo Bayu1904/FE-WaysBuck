@@ -15,7 +15,7 @@ export default function Cart() {
   let navigate = useNavigate();
   // Get data transaction by ID
   let { data: transaction, refetch } = useQuery("transCache", async () => {
-    const response = await API.get("/transaction1");
+    const response = await API.get("/transaction-status");
     return response.data.data;
   });
 
@@ -102,8 +102,8 @@ export default function Cart() {
         <Row className="justify-content-between">
           <Col md={8}>
             <hr />
-              {transaction?.carts?.map((item, index) => (
             <Container className="justify-content-between ">
+              {transaction?.carts?.map((item, index) => (
                 <Row style={{ fontSize: 14 }}>
                   <Col md={8} className="d-flex">
                     <div
@@ -148,8 +148,8 @@ export default function Cart() {
                     />
                   </Col>
                 </Row>
-            </Container>
               ))}
+            </Container>
             <hr />
           </Col>
 
