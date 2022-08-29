@@ -50,7 +50,7 @@ export default function ProfileComp() {
           <h3 className="mb-4" style={{ color: "#613D2B" }}>
             My Transaction
           </h3>
-          <div style={{ height: 60, overflow: "auto"}}>
+          <div style={{ height: "150px", overflow: "auto"}}>
           <Transaction data={ transaction} />
           </div>
         </Col>
