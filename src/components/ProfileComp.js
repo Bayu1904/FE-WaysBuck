@@ -9,9 +9,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export default function ProfileComp() {
-  let { data: transaction } = useQuery("transCache", async () => {
+  let { data: transaction } = useQuery("traans", async () => {
     const response = await API.get("/transaction-id");
-    return response.data.data[0];
+    return response.data.data;
   });
 
   
