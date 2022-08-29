@@ -10,9 +10,11 @@ import Col from "react-bootstrap/Col";
 
 export default function ProfileComp() {
   let { data: transaction } = useQuery("transCache", async () => {
-    const response = await API.get("/transaction1");
+    const response = await API.get("/transaction-id");
     return response.data.data;
   });
+
+  
   console.log(transaction);
   return (
     <Container fluid className="w-75 m-auto mt-5">
