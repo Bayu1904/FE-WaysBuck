@@ -61,15 +61,13 @@ export default function Detail() {
   const handleAddToCart = useMutation(async (e) => {
     try {
       e.preventDefault();
-      if (transaction_id === undefined) {
-        API.post("/transaction");
-      }
-
+      
       const config = {
         headers: {
           "Content-type": "application/json",
         },
       };
+      await API.post("/transaction", config);
       const data = {
         product_id: product.id,
         toping_id: topingId,
